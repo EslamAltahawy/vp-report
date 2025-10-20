@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد التقرير اليومي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="form-container">
+            <header class="form-header">
+                <h1>مولد التقرير اليومي</h1>
+                <p>املأ التفاصيل أدناه لإنشاء تقريرك.</p>
+            </header>
+            
+            <form id="report-form">
+                <fieldset>
+                    <legend>معلومات التقرير</legend>
+                    <div class="form-group">
+                        <label for="report-date">تاريخ التقرير</label>
+                        <input type="date" id="report-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="report-author">مُعد التقرير</label>
+                        <input type="text" id="report-author" placeholder="اكتب اسمك" required>
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>حضور الموظفين</legend>
+                    <div id="attendance-rows">
+                        </div>
+                    <button type="button" id="add-employee-btn" class="btn btn-secondary">+ إضافة موظف</button>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>أقسام التقرير</legend>
+                    <div class="form-group">
+                        <label for="admin-summary">الملخص الإداري اليومي</label>
+                        <textarea id="admin-summary" rows="4" placeholder="مثال: اجتماعات، مكالمات عملاء..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tech-tasks">مهام الفريق التقني</label>
+                        <textarea id="tech-tasks" rows="4" placeholder="مثال: تم إطلاق الميزة س، تم إصلاح الخلل ص..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="issues">المشاكل أو التحديات</label>
+                        <textarea id="issues" rows="4" placeholder="مثال: توقف الخادم، موافقات معلقة..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="general-notes">ملاحظات عامة</label>
+                        <textarea id="general-notes" rows="4" placeholder="أي معلومات أخرى ذات صلة..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tomorrow-plan">خطة عمل الغد</label>
+                        <textarea id="tomorrow-plan" rows="4" placeholder="مثال: البدء في العمل على الميزة ع..."></textarea>
+                    </div>
+                </fieldset>
+
+                
+                <div class="action-buttons">
+                    <button type="button" id="save-draft-btn" class="btn btn-secondary">💾 حفظ كمسودة</button>
+                    <button type="button" id="print-btn" class="btn btn-secondary">🖨️ طباعة</button>
+                    <button type="button" id="pdf-btn" class="btn btn-primary">📄 تصدير PDF</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="preview-container">
+            <div id="report-preview" class="printable-area">
+                <h2>معاينة التقرير</h2>
+                <p>سيتم تحديث هذه المنطقة أثناء الكتابة.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    
+    <script src="cairo-font-base64.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
